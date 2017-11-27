@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1e273fd0d890d6c44a6bd537072ae809
+timeCreated: 1509966187
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - _aliveSprite: {fileID: 21300000, guid: f9b1302764e89464d92ba4b8fa3843d2, type: 3}
+  - _deadSprite: {fileID: 21300002, guid: f9b1302764e89464d92ba4b8fa3843d2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
