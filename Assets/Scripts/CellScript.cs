@@ -44,10 +44,21 @@ public class CellScript : MonoBehaviour
         {
             for (var y = _y - 1; y <= _y + 1; y++)
             {
+                var oldX = x;
+                var oldY = y;
+                
                 if (x == _x && y == _y) continue;
-                if (x < 0 || x >= _boardScript.GetColums || y < 0 || y >= _boardScript.GetRows) continue;
+                
+                if (x < 0) x = _boardScript.GetColums - 1;
+                else if (x >= _boardScript.GetColums) x = 0;
+                if (y < 0) y = _boardScript.GetRows - 1;
+                else if (y >= _boardScript.GetRows) y = 0;
+                
                 if (_cellMatrix[x, y].GetComponent<CellScript>().IsAlive)
                     _aliveNeighbours++;
+                
+                x = oldX;
+                y = oldY;
             }
         }
     }
