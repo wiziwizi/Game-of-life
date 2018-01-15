@@ -9,6 +9,7 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private int _colums;
     [SerializeField] private float _spawnChance;
     [SerializeField] private GameObject[,] _cellMatrix;
+    public int Rule_set;
 
     private Transform _gridHolder;
 

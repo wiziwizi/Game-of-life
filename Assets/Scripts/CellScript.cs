@@ -65,19 +65,58 @@ public class CellScript : MonoBehaviour
 
     public void Determine()
     {
-        if (IsAlive && (_aliveNeighbours < 2 || _aliveNeighbours > 3))
+        switch (_boardScript.Rule_set)
         {
-            IsAlive = false;
+                case 1:
+                    if (IsAlive && (_aliveNeighbours < 2 || _aliveNeighbours > 3))
+                    {
+                        IsAlive = false;
+                    }
+                    else if (IsAlive && (_aliveNeighbours == 2 || _aliveNeighbours == 3))
+                    {
+                        IsAlive = true;
+                    }
+                    else if (!IsAlive && _aliveNeighbours == 3)
+                    {
+                        IsAlive = true;
+                    }
+                    _isSpriteSet = false;
+                    break;
+                    
+                case 2:
+                    if (IsAlive && _aliveNeighbours > 3)
+                    {
+                        IsAlive = true;
+                    }
+                    else if (!IsAlive && _aliveNeighbours > 4)
+                    {
+                        IsAlive = true;
+                    }
+                    else
+                    {
+                        IsAlive = false;
+                    }
+                    
+                    _isSpriteSet = false;
+                    break;
+                    
+                case 3:
+                    if (IsAlive && _aliveNeighbours > 4 || IsAlive && _aliveNeighbours == 3)
+                    {
+                        IsAlive = true;
+                    }
+                    else if (!IsAlive && _aliveNeighbours > 5 || !IsAlive && _aliveNeighbours == 4)
+                    {
+                        IsAlive = true;
+                    }
+                    else
+                    {
+                        IsAlive = false;
+                    }
+                    _isSpriteSet = false;
+                    break;
         }
-        else if (IsAlive && (_aliveNeighbours == 2 || _aliveNeighbours == 3))
-        {
-            IsAlive = true;
-        }
-        else if (!IsAlive && _aliveNeighbours == 3)
-        {
-            IsAlive = true;
-        }
-        _isSpriteSet = false;
+        
     }
 
     public void SetPosition(int x, int y)
