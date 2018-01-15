@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class BoardManager : MonoBehaviour
 {
@@ -45,6 +47,13 @@ public class BoardManager : MonoBehaviour
                 _cellMatrix[x, y] = cellInstance;
             }
         }
+    }
+
+    public void ChangeRuleSet(Slider slider)
+    {
+        Rule_set = (int)slider.value;
+        Destroy(_gridHolder.gameObject);
+        SetupScene();
     }
     
     public int GetRows{get {return _rows;} }
